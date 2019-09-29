@@ -1,6 +1,6 @@
 #include "BinaryTree.h"
 
-// Í¨¹ýÇ°Ðò±éÀúµÄÊý×é"ABD##E#H##CF##G##"¹¹½¨¶þ²æÊ÷
+// é€šè¿‡å‰åºéåŽ†çš„æ•°ç»„"ABD##E#H##CF##G##"æž„å»ºäºŒå‰æ ‘
 BTNode* BinaryTreeCreate() {
 	BTNode* bt = NULL;
 	char ch;
@@ -66,7 +66,7 @@ BTNode* BinaryTreeFind(BTNode* root, BTDataType x) {
 	return BinaryTreeFind(root->_right, x);
 }
 
-// ±éÀú
+// éåŽ†
 void BinaryTreePrevOrder(BTNode* root) {
 	assert(root);
 	if (root == NULL) {
@@ -100,28 +100,28 @@ void BinaryTreePostOrder(BTNode* root) {
 	return;
 }
 
-// ·ÇµÝ¹é±éÀú
-// ²ãÐò±éÀú
+// éžé€’å½’éåŽ†
+// å±‚åºéåŽ†
 void BinaryTreeLevelOrder(BTNode* root) {
 
 }
 
-// ÅÐ¶Ï¶þ²æÊ÷ÊÇ·ñÊÇÍêÈ«¶þ²æÊ÷ 
+// åˆ¤æ–­äºŒå‰æ ‘æ˜¯å¦æ˜¯å®Œå…¨äºŒå‰æ ‘ 
 int BinaryTreeComplete(BTNode* root) {
 	queue q;
 	BTNode *ptr;
-	// ½øÐÐ¹ã¶ÈÓÅÏÈ±éÀú£¨²ã´Î±éÀú£©£¬²¢°ÑNULL½ÚµãÒ²·ÅÈë¶ÓÁÐ  
+	// è¿›è¡Œå¹¿åº¦ä¼˜å…ˆéåŽ†ï¼ˆå±‚æ¬¡éåŽ†ï¼‰ï¼Œå¹¶æŠŠNULLèŠ‚ç‚¹ä¹Ÿæ”¾å…¥é˜Ÿåˆ—  
 	q.push(root);
 	while ((ptr = q.pop()) != NULL)
 	{
 		q.push(ptr->_left);
 		q.push(ptr->_right);
 	}
-	// ÅÐ¶ÏÊÇ·ñ»¹ÓÐÎ´±»·ÃÎÊµ½µÄ½Úµã  
+	// åˆ¤æ–­æ˜¯å¦è¿˜æœ‰æœªè¢«è®¿é—®åˆ°çš„èŠ‚ç‚¹  
 	while (!q.is_empty())
 	{
 		ptr = q.pop();
-		// ÓÐÎ´·ÃÎÊµ½µÄµÄ·ÇNULL½Úµã£¬ÔòÊ÷´æÔÚ¿Õ¶´£¬Îª·ÇÍêÈ«¶þ²æÊ÷  
+		// æœ‰æœªè®¿é—®åˆ°çš„çš„éžNULLèŠ‚ç‚¹ï¼Œåˆ™æ ‘å­˜åœ¨ç©ºæ´žï¼Œä¸ºéžå®Œå…¨äºŒå‰æ ‘  
 		if (NULL != ptr)
 		{
 			return 0;
